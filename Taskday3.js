@@ -7,14 +7,14 @@ let resume = {
 console.log(JSON.stringify(resume)); //this is JSON string iterate
 // fron JSON iterate over all for loops
 //print key name only by using for in loop
-for (let keyname in resume){
+/*for (let keyname in resume){
     console.log(keyname);
 } 
 //Print key name and key value by using for in loop
 for(let keyname in resume)
 {
 console.log(keyname,resume[keyname]);
-}
+}*/
 
 /*
 Window,screen and Document
