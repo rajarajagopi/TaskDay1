@@ -1,0 +1,156 @@
+1.Difference between HTTP/2 and HTTP/1.1
+HTTP stands for hypertext transfer protocol & it is used in client-server communication. 
+By using HTTP user sends the request to the server & the server sends the response to the user. 
+There are several stages of development of HTTP but we will focus mainly on HTTP/1.1 which was created in 1997 & the new one is HTTP/2 which was created in 2015.
+
+HTTP/1.1:before sending the request and the response there is a TCP connection established between client & server. 
+again you make a request to the server for image img.jpg & the server gives a response as an image img.jpg.
+the connection was not lost here after the first request because we add a keep-alive header which is the part of the request so there is an open connection between the server & client.
+there is a persistent connection which means several requests & responses are merged in a single connection. 
+These are the drawbacks that lead to the creation of HTTP/2: The first problem is 
+HTTP/1.1 transfer all the requests & responses in the plain text message form.
+The second one is head of line blocking in which TCP connection is blocked all other requests until the response does not receive.
+all the information related to the header file is repeated in every request.
+It works on the textual format.
+There is head of line blocking that blocks all the requests behind it until it doesn’t get its all resources.
+It uses requests resource Inlining for use getting multiple pages
+It compresses data by itself.
+
+HTTP/2: HTTP/2 was developed over the SPDY protocol. 
+HTTP/2 works on the binary framing layer instead of textual that converts all the messages in binary format.
+it works on fully multiplexed that is one TCP connection is used for multiple requests.
+HTTP/2 uses HPACK which is used to split data from header.
+it compresses the header. The server sends all the other files like CSS & JS without the request of the client using the PUSH frame.
+It works on the binary protocol.
+It allows multiplexing so one TCP connection is required for multiple requests
+It uses PUSH frame by server that collects all multiple pages.
+It uses HPACK for data compression.
+
+2.Objects and its internal representation in javascript
+Objects are important data types in javascript.
+Objects are different than primitive datatypes (i.e. number, string, boolean, etc.). 
+Primitive data types contain one value but Objects can hold many values in form of Key: value pair.
+These keys can be variables or functions and are called properties and methods, respectively,in the context of an object.
+Every object has some property associated with some value. 
+These values can be accessed using these properties associated with them.
+
+The syntax for adding a property to an object is :
+ObjectName.ObjectProperty = propertyValue;
+
+The syntax for deleting a property from an object is:
+delete ObjectName.ObjectProperty;
+
+The syntax to access a property from an object is:
+objectName.property        
+           //or
+objectName["property”]     
+           //or
+objectName[expression] 
+
+Create JavaScript Object with Object Literal
+let person = {
+name:'Rajagopi'
+age:'33'
+phone:'9952116933'
+address:'Ramanathapuram'
+pincode:'623704'
+}
+
+
+4,IP address, port, HTTP methods, MAC address
+
+IP address
+An Internet Protocol address (IP address) is the logical address of our network hardware by which other devices identify it in a network. 
+IP address stands for Internet Protocol address which is an unique number or a numerical representation that uniquely identifies a specific interface on the network. 
+Each device that is connected to internet an IP address is assigned to it for its unique identification. 
+Addresses in IPv4 are 32-bits long example,
+12.244.233.165 
+
+And Addresses in IPv6 are 128-bits example, 
+2001:0db8:0000:0000:0000:ff00:0042:7879
+
+port Numbar
+Port number is the part of the addressing information used to identify the senders and receivers of messages in computer networking. 
+Different port numbers are used to determine what protocol incoming traffic should be directed to. 
+Port number identifies a specific process to which an Internet or other network message is to be forwarded when it arrives at a server. 
+Ports are identified for each protocol and It is considered as a communication endpoint.
+Ports are represented by 16-bit numbers.
+
+1. Well-Known Port Numbers
+0 to 1023 are well-known port numbers are as they are used by well-known protocol services.
+These are allocated to server services by the Internet Assigned Numbers Authority (IANA).
+
+2. Registered Port Numbers
+1024 to 49151 are registered port numbers i.e it can be registered to specific protocols by software corporations
+
+3. Dynamic Port Numbers
+49152 to 65535 are dynamic port numbers and they can be used by anyone
+
+HTTP methods
+The set of common methods for HTTP/1.1 is defined below and this set can be expanded based on requirements. 
+These method names are case sensitive and they must be used in uppercase.
+1	GET
+The GET method is used to retrieve information from the given server using a given URI. 
+Requests using GET should only retrieve data and should have no other effect on the data.
+2	HEAD
+Same as GET, but transfers the status line and header section only.
+3	POST
+A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+4	PUT
+Replaces all current representations of the target resource with the uploaded content.
+5	DELETE
+Removes all current representations of the target resource given by a URI.
+6	CONNECT
+Establishes a tunnel to the server identified by a given URI.
+7	OPTIONS
+Describes the communication options for the target resource.
+8	TRACE
+Performs a message loop-back test along the path to the target resource
+
+MAC Address
+To communicate or transfer data from one computer to another computer, 
+we need some address. In Computer Networks various types of addresses are introduced; 
+each works at a different layer. 
+Media Access Control Address is a physical address that works at the Data Link Layer. 
+In this article, we will discuss addressing DLL, which is MAC Address.
+1.Logical Link Control(LLC) Sublayer
+2.Media Access Control(MAC) Sublayer
+MAC address is used by the Media Access Control (MAC) sublayer of the Data-Link Layer. 
+MAC Address is worldwide unique since millions of network devices exist and we need to uniquely identify each.
+
+Format of MAC Address
+MAC Address is a 12-digit hexadecimal number (6-Byte binary number), 
+which is mostly represented by Colon-Hexadecimal notation. 
+The First 6 digits (say 00:40:96) of the MAC Address identify the manufacturer, 
+called OUI (Organizational Unique Identifier). 
+IEEE Registration Authority Committee assigns these MAC prefixes to its registered vendors.
+
+MAC address can be represented using any of the following formats
+Hypen-Hexadecimal notation 00-0a-83-b1-c0-8e
+colon-Hexadecimal notation 00:0a:83:b1:c0:8e
+Period seperated Hexadecimal notation 000.a83.b1c.08e
+Colon-Hexadecimal notation is used by Linux OS and Period-separated Hexadecimal notation is used by Cisco Systems. 
+
+Find the MAC Address
+ifconfig -a
+ip link list 
+ip address show
+
+Command forWindows OS -   
+ipconfig /all 
+
+MacOS -                   
+TCP/IP Control Panel
+
+Types of MAC Address
+1. Unicast: A Unicast-addressed frame is only sent out to the interface leading to a specific NIC. 
+If the LSB (least significant bit) of the first octet of an address is set to zero, 
+the frame is meant to reach only one receiving NIC. 
+The MAC Address of the source machine is always Unicast.
+2. Multicast: The multicast address allows the source to send a frame to a group of devices. 
+In Layer-2 (Ethernet) Multicast address, 
+the LSB (least significant bit) of the first octet of an address is set to one. 
+IEEE has allocated the address block 01-80-C2-xx-xx-xx (01-80-C2-00-00-00 to 01-80-C2-FF-FF-FF) for group addresses for use by standard protocols.
+3. Broadcast: Similar to Network Layer, Broadcast is also possible on the underlying layer( Data Link Layer). 
+Ethernet frames with ones in all bits of the destination address (FF-FF-FF-FF-FF-FF) are referred to as the broadcast addresses. 
+Frames that are destined with MAC address FF-FF-FF-FF-FF-FF will reach every computer belonging to that LAN segment.  
